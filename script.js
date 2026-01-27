@@ -37,11 +37,31 @@
    // console.log("Form Submitted")
 //})
 
-const div=document.querySelector('.container')
-const div2=document.querySelector('outer')
-const btn=document.querySelector('button')
+// const div=document.querySelector('.container')
+// const div2=document.querySelector('outer')
+// const btn=document.querySelector('button')
 
 
-div.addEventListener('click',()=>{console.log("clicked the div")})
-div2.addEventListener('click',()=>{console.log("clicked the outer div")})
-btn.addEventListener('click',()=>{console.log("clicked the btton")})
+// div.addEventListener('click',()=>{console.log("clicked the div")})
+// div2.addEventListener('click',()=>{console.log("clicked the outer div")})
+// btn.addEventListener('click',()=>{console.log("clicked the btton")})
+
+
+// var message = "Hello User"; 
+
+// function greet() {
+//     console.log(message); 
+// }
+
+// greet();
+// console.log(message); 
+function first(){
+    second()
+}
+function second(){
+    third()
+}
+function third(){
+    console.trace()
+}
+first()
