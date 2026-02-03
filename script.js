@@ -55,13 +55,10 @@
 
 // greet();
 // console.log(message); 
-function first(){
-    second()
-}
-function second(){
-    third()
-}
-function third(){
-    console.trace()
-}
-first()
+const timerId=setInterval(()=>{
+    console.log("After 3 sec")
+},1000)
+console.log(timerId)
+setTimeout(()=>{
+    classInterval(timerId)
+},10*1000)
