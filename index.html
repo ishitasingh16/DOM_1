@@ -3,32 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-
-    <p class="para">This is paragraph</p>
-    <p class="para">This is paragraph</p>
-    <div class="container">hi</div>
-    <button id="start">start</button>
-    <button id="stop">stop</button>
-    <!-- <form>
-        <label for="name">Name:</label>
-        <input type="text" placeholder="enter your name" id="name"><br>
-        <label for="password">Password:</label>
-        <input type="password"placeholder="enter your password" id="password"><br>
-        <input type="submit" value="Submit Form">
-
-    </form> -->
-    <!-- <div class="outer">
-        <div class="inner">
-            <button>submut</button>
+    <div class="constainer">
+        <div class="eventForm">
+            <form class="form">
+                <label for="eventTitle">Event Title: </label>
+                <input type="text" id="eventTitle">
+                <br>
+                <label for="eventDate">Event Date: </label>
+                <input type="date" id="eventDate">
+                <br>
+                <label for="category">Category: </label>
+                <select id="category">
+                    <option value="Conference">Conference</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Meetup">Meetup</option>
+                    <option value="Webinar">Webinar</option>
+                    <option value="Social">Social</option>
+                </select>
+                <br>
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+                <br>
+                <input type="submit" value="Add Event">
+                
+            </form>
         </div>
-    </div> -->
-    <input type="text" id="name" placeholder="Enter the name">
-    <button class="btn"></button>
-   
+        <div class="events">
+            <button>Clear All Events</button>
+            <button>Add sample Events</button>
+            <div class="cards">
+                
+            </div>
+        </div>
+        <div class="domContainer"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -131,61 +131,107 @@
 //     console.log(msg)
 
 // }.catch(err)=>
-    function doHomework() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let homeworkDone = true;
-            if (homeworkDone) {
-                console.log("Homework is done");
-                resolve("Homework complete");
-            } else {
-                reject("Homework not done");
-            }
-        }, 3000);
+//     function doHomework() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             let homeworkDone = true;
+//             if (homeworkDone) {
+//                 console.log("Homework is done");
+//                 resolve("Homework complete");
+//             } else {
+//                 reject("Homework not done");
+//             }
+//         }, 3000);
+//     });
+// }
+
+// function eatDinner() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             let dinnerEaten = true;
+//             if (dinnerEaten) {
+//                 console.log("Dinner is eaten");
+//                 resolve("Dinner complete");
+//             } else {
+//                 reject("Didn't eat dinner");
+//             }
+//         }, 2000);
+//     });
+// }
+
+// function goToPlayground() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             let permission = true;
+//             if (permission) {
+//                 console.log("Went to the playground");
+//                 resolve("Playground time!");
+//             } else {
+//                 reject("Not allowed to go out");
+//             }
+//         }, 3000);
+//     });
+// }
+
+// doHomework()
+//   .then((data) => {
+//     console.log(data);
+//     return eatDinner();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//     return goToPlayground();
+//   })
+//   .catch((error) => {
+//     console.log("Something went wrong:", error);
+//   })
+//   .finally(() => {
+//     console.log(" Go to sleep");
+//   });
+// 1. Select the main containers
+const form = document.querySelector('.form');
+const eventCards = document.querySelector('.cards');
+
+// 2. Select the specific input fields (Missing in your original code)
+const eventTitle = document.querySelector('#eventTitle'); 
+const eventDate = document.querySelector('#eventDate');
+const category = document.querySelector('#category');
+const description = document.querySelector('#description');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Get the current values from the inputs
+    let title = eventTitle.value;
+    let date = eventDate.value;
+    let cat = category.value;
+    let desc = description.value;
+
+    // Create the card element
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = `
+        <h3>${title}</h3>
+        <p>📆 ${date}</p>
+        <button class="cat-btn">${cat}</button>
+        <p>${desc}</p>
+        <div class="dlt">x</div>
+    `;
+
+    // Append to the list
+    eventCards.appendChild(card);
+
+    // Add delete functionality to the specific "x" button
+    const dlt = card.querySelector('.dlt');
+    dlt.addEventListener('click', () => {
+        card.remove();
     });
-}
 
-function eatDinner() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let dinnerEaten = true;
-            if (dinnerEaten) {
-                console.log("Dinner is eaten");
-                resolve("Dinner complete");
-            } else {
-                reject("Didn't eat dinner");
-            }
-        }, 2000);
-    });
-}
+    // Optional: Clear the form fields after submission
+    form.reset();
+});
 
-function goToPlayground() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let permission = true;
-            if (permission) {
-                console.log("Went to the playground");
-                resolve("Playground time!");
-            } else {
-                reject("Not allowed to go out");
-            }
-        }, 3000);
-    });
-}
-
-doHomework()
-  .then((data) => {
-    console.log(data);
-    return eatDinner();
-  })
-  .then((data) => {
-    console.log(data);
-    return goToPlayground();
-  })
-  .catch((error) => {
-    console.log("Something went wrong:", error);
-  })
-  .finally(() => {
-    console.log(" Go to sleep");
-  });
-
+// Clear All functionality
+document.querySelector('.clearall').addEventListener('click', () => {
+    eventCards.innerHTML = ''; // Faster way to clear all children
+});
